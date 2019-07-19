@@ -1,6 +1,7 @@
 <template>
   <div class="group">
-    <div v-for="n in counterNumber" :key="n">
+    <input v-model="counterNumber"/>
+    <div v-for="n in parseInt(counterNumber)" :key="n">
       <Counter/>
     </div>
   </div>
