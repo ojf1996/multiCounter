@@ -1,6 +1,8 @@
 <template>
   <div class="group">
-    <Counter/>
+    <div v-for="n in counterNumber" :key="n">
+      <Counter/>
+    </div>
   </div>
 </template>
 
@@ -12,7 +14,7 @@ export default {
   components: { Counter },
   data() {
     return {
-      counterNumber: 1
+      counterNumber: 3
     }
   }
 }
