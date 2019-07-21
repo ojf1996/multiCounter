@@ -23,15 +23,16 @@ export default {
   },
   data() {
     return {
-      sum : new Array(0)
+      sum : []
     }
   },
   watch: {
-    counterNumber(oldValue, newValue) {
+    counterNumber(newValue, oldValue) {
+      console.log(oldValue, newValue)
       const numChaged = Math.abs(oldValue - newValue)
       for (let i = 0; i < numChaged; ++i) {
         if (oldValue - newValue > 0) {
-          this.sum.splice(this.sum.length, 1)
+          this.sum.splice(this.sum.length - 1, 1)
         } else if (oldValue - newValue < 0) {
           this.sum.splice(this.sum.length, 0, 0)
         }
@@ -40,6 +41,7 @@ export default {
   },
   computed: {
     sumOfAllCounter() {
+      console.log(this.sum)
       let num = this.sum.reduce((acc,num) => { return acc + num }, 0)
       return num
     }
