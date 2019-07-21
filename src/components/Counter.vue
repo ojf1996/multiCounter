@@ -22,10 +22,12 @@ export default {
   },
   methods: {
     increase() {
-      this.count++;
+      this.count++
+      this.$emit("update:sum", this.count)
     },
     decrease() {
-      this.count--;
+      this.count--
+      this.$emit("update:sum", this.count)
     }
   }
 }
