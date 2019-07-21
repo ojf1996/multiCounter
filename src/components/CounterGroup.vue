@@ -1,7 +1,6 @@
 <template>
   <div class="group">
-    <input v-model="counterNumber"/>
-    <div v-for="n in parseInt(counterNumber)" :key="n">
+    <div v-for="n in counterNumber" :key="n">
       <Counter/>
     </div>
   </div>
@@ -13,9 +12,10 @@ import Counter from "@/components/Counter"
 export default {
   name: "CounterGroup",
   components: { Counter },
-  data() {
-    return {
-      counterNumber: 3
+  props: {
+    counterNumber: {
+      type: Number,
+      default: 1
     }
   }
 }

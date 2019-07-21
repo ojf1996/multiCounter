@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <CounterGroup/>
+    <input v-model="counterNumber"/>
+    <CounterGroup :counterNumber="parseInt(counterNumber) || 0"/>
   </div>
 </template>
 
@@ -9,6 +10,11 @@ import CounterGroup from '@/components/CounterGroup'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      counterNumber: 0
+    }
+  },
   components: {
     CounterGroup
   }
